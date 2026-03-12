@@ -1,0 +1,92 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', 'Hiragino Sans', 'Meiryo', sans-serif; background: #f5f7fa; color: #333; min-height: 100vh; display: flex; flex-direction: column; padding-top: 48px; }
+
+/* ヘッダー */
+.header { background: #2c3e50; color: #fff; padding: 16px 24px; text-align: center; display: flex; justify-content: center; align-items: center; position: relative; }
+.header h1 { font-size: 1.4rem; margin-bottom: 4px; }
+.header p { font-size: 0.85rem; color: #bdc3c7; }
+.lang-switch { position: absolute; right: 24px; top: 50%; transform: translateY(-50%); }
+.lang-switch button { background: transparent; border: 1px solid #7f8c8d; color: #bdc3c7; padding: 4px 10px; font-size: 0.8rem; cursor: pointer; border-radius: 4px; transition: all 0.2s; }
+.lang-switch button:hover { border-color: #fff; color: #fff; }
+.lang-switch button.active { background: #fff; color: #2c3e50; border-color: #fff; font-weight: 600; }
+
+/* ステッパー */
+.stepper { display: flex; justify-content: center; gap: 0; padding: 20px 24px 0; background: #fff; border-bottom: 1px solid #e0e0e0; }
+.step-tab { padding: 12px 32px; font-size: 0.95rem; color: #95a5a6; border-bottom: 3px solid transparent; cursor: default; display: flex; align-items: center; gap: 8px; transition: all 0.2s; }
+.step-tab .step-num { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; background: #ddd; color: #fff; font-size: 0.8rem; font-weight: 700; }
+.step-tab.active { color: #2c3e50; border-bottom-color: #3498db; }
+.step-tab.active .step-num { background: #3498db; }
+.step-tab.done { color: #27ae60; cursor: pointer; }
+.step-tab.done .step-num { background: #27ae60; }
+
+/* メインコンテンツ */
+.main { flex: 1; padding: 24px; max-width: 1200px; width: 100%; margin: 0 auto; }
+.step-panel { display: none; }
+.step-panel.active { display: block; }
+
+.card { background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 24px; margin-bottom: 20px; }
+.card h2 { font-size: 1.1rem; color: #2c3e50; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #3498db; }
+
+/* 入力タブ */
+.input-tabs { display: flex; gap: 0; margin-bottom: 16px; }
+.input-tab { padding: 10px 24px; cursor: pointer; border: 1px solid #ddd; background: #f8f9fa; font-size: 0.95rem; transition: all 0.2s; }
+.input-tab:first-child { border-radius: 6px 0 0 6px; }
+.input-tab:last-child { border-radius: 0 6px 6px 0; }
+.input-tab.active { background: #3498db; color: #fff; border-color: #3498db; }
+.input-tab-content { display: none; }
+.input-tab-content.active { display: block; }
+
+/* ヘッダー有無チェック */
+.header-option { margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.header-option label { font-size: 0.9rem; cursor: pointer; }
+
+/* ファイルアップロード */
+.drop-zone { border: 2px dashed #bdc3c7; border-radius: 8px; padding: 40px; text-align: center; color: #7f8c8d; cursor: pointer; transition: all 0.3s; }
+.drop-zone:hover, .drop-zone.dragover { border-color: #3498db; background: #ebf5fb; color: #3498db; }
+.drop-zone input { display: none; }
+
+textarea { width: 100%; height: 160px; border: 1px solid #ddd; border-radius: 6px; padding: 12px; font-family: monospace; font-size: 0.9rem; resize: vertical; }
+textarea:focus { outline: none; border-color: #3498db; }
+
+/* ボタン */
+.btn { padding: 10px 24px; border: none; border-radius: 6px; font-size: 0.95rem; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px; }
+.btn-primary { background: #3498db; color: #fff; }
+.btn-primary:hover { background: #2980b9; }
+.btn-secondary { background: #95a5a6; color: #fff; }
+.btn-secondary:hover { background: #7f8c8d; }
+.btn-success { background: #27ae60; color: #fff; }
+.btn-success:hover { background: #219a52; }
+.btn-group { display: flex; gap: 12px; margin-top: 20px; }
+
+/* 設定パネル */
+.settings-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-bottom: 16px; }
+.settings-row label { font-weight: 600; font-size: 0.9rem; }
+.settings-row select { padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.9rem; min-width: 200px; }
+.settings-row select:focus { outline: none; border-color: #3498db; }
+.radio-group { display: flex; gap: 16px; flex-wrap: wrap; }
+.radio-group label { font-weight: normal; display: flex; align-items: center; gap: 4px; cursor: pointer; }
+
+/* テーブル */
+.table-wrap { overflow-x: auto; max-height: 500px; overflow-y: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+th, td { padding: 8px 12px; border: 1px solid #e0e0e0; text-align: left; max-width: 400px; overflow-wrap: break-word; }
+th { background: #2c3e50; color: #fff; position: sticky; top: 0; font-weight: 600; z-index: 1; }
+tr:nth-child(even) { background: #f8f9fa; }
+tr:hover { background: #ebf5fb; }
+.extracted-col { background: #fef9e7; font-weight: 500; position: sticky; right: 0; z-index: 1; min-width: 180px; border-left: 2px solid #f0c040; }
+tr:hover .extracted-col { background: #fdf2d1; }
+th.extracted-col { background: #2c3e50; z-index: 2; border-left: 2px solid #f0c040; }
+
+.result-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 12px; }
+.stats { color: #7f8c8d; font-size: 0.85rem; }
+
+.hidden { display: none; }
+.file-name { margin-top: 8px; color: #27ae60; font-size: 0.9rem; }
+.msg { padding: 12px; border-radius: 6px; margin-top: 12px; font-size: 0.9rem; }
+.msg-info { background: #ebf5fb; color: #2980b9; }
+.msg-error { background: #fdedec; color: #c0392b; }
+.preview-info { color: #7f8c8d; font-size: 0.85rem; margin-bottom: 12px; }
+.col-sample-preview { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 6px; padding: 12px 16px; margin-bottom: 16px; font-size: 0.85rem; }
+.col-sample-preview .col-sample-label { font-weight: 600; color: #2c3e50; margin-bottom: 6px; }
+.col-sample-preview .col-sample-values { color: #555; line-height: 1.6; }
+.col-sample-preview .col-sample-values span { display: inline-block; background: #fff; border: 1px solid #ddd; border-radius: 4px; padding: 2px 8px; margin: 2px 4px 2px 0; }
