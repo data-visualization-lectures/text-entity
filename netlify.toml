@@ -1,2 +1,8 @@
 [build]
   publish = "docs"
+
+[[redirects]]
+  from = "https://text-entity.dataviz.jp/*"
+  to = "https://text-entity.dataprep.jp/:splat"
+  status = 301
+  force = true
