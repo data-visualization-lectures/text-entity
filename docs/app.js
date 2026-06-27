@@ -105,21 +105,11 @@
       }
     });
     textInput.placeholder = t('textPlaceholder');
-    document.querySelectorAll('.lang-switch button').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.lang === lang);
-    });
     if (parsedData) {
       updateColSelect();
       updateColSamplePreview();
     }
   }
-
-  document.querySelectorAll('.lang-switch button').forEach(btn => {
-    btn.addEventListener('click', () => {
-      lang = btn.dataset.lang;
-      applyI18n();
-    });
-  });
 
   // ===== State =====
   let parsedData = null;
